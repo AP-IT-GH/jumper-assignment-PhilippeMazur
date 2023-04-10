@@ -1,0 +1,65 @@
+{
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.1+cu110"
+    },
+    "JumpAgent": {
+        "checkpoints": [
+            {
+                "steps": 719,
+                "file_path": "results\\JumpAgent5\\JumpAgent\\JumpAgent-719.onnx",
+                "reward": -1.0,
+                "creation_time": 1681114906.2669146,
+                "auxillary_file_paths": [
+                    "results\\JumpAgent5\\JumpAgent\\JumpAgent-719.pt"
+                ]
+            },
+            {
+                "steps": 1491,
+                "file_path": "results\\JumpAgent5\\JumpAgent\\JumpAgent-1491.onnx",
+                "reward": -1.0,
+                "creation_time": 1681115158.176742,
+                "auxillary_file_paths": [
+                    "results\\JumpAgent5\\JumpAgent\\JumpAgent-1491.pt"
+                ]
+            },
+            {
+                "steps": 4072,
+                "file_path": "results\\JumpAgent5\\JumpAgent\\JumpAgent-4072.onnx",
+                "reward": -1.0,
+                "creation_time": 1681115327.8479493,
+                "auxillary_file_paths": [
+                    "results\\JumpAgent5\\JumpAgent\\JumpAgent-4072.pt"
+                ]
+            },
+            {
+                "steps": 4345,
+                "file_path": "results\\JumpAgent5\\JumpAgent\\JumpAgent-4345.onnx",
+                "reward": null,
+                "creation_time": 1681115458.4547172,
+                "auxillary_file_paths": [
+                    "results\\JumpAgent5\\JumpAgent\\JumpAgent-4345.pt"
+                ]
+            },
+            {
+                "steps": 4691,
+                "file_path": "results\\JumpAgent5\\JumpAgent\\JumpAgent-4691.onnx",
+                "reward": -1.0,
+                "creation_time": 1681115838.1198168,
+                "auxillary_file_paths": [
+                    "results\\JumpAgent5\\JumpAgent\\JumpAgent-4691.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4691,
+            "file_path": "results\\JumpAgent5\\JumpAgent.onnx",
+            "reward": -1.0,
+            "creation_time": 1681115838.1198168,
+            "auxillary_file_paths": [
+                "results\\JumpAgent5\\JumpAgent\\JumpAgent-4691.pt"
+            ]
+        }
+    }
+}
