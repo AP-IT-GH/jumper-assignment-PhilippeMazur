@@ -61,6 +61,7 @@ public class JumpCubeAgent : Agent
         if(transform.position.y <= 0.5f)
         {
             rb.AddForce(Vector3.up * Force, ForceMode.Acceleration);
+            AddReward(-0.05f);
         }
 
     }
@@ -70,7 +71,7 @@ public class JumpCubeAgent : Agent
         if (collision.gameObject.CompareTag("obstacle"))
         {
             collision.gameObject.transform.position = new Vector3(11, 0.3603692f, 0.002144069f);
-            AddReward(-0.5f);
+            AddReward(-0.25f);
             EndEpisode();
         }
     }
