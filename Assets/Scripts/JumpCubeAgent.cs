@@ -24,21 +24,11 @@ public class JumpCubeAgent : Agent
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
-    {    // Acties, size = 2    
-        Vector3 controlSignal = Vector3.zero;
-        controlSignal.z = actionBuffers.ContinuousActions[0];
-        //transform.Translate(controlSignal * speedmultiplier);
-        //transform.Rotate(0.0f, rotationmultiplier * actionBuffers.ContinuousActions[1], 0.0f);
-        float distanceToTarget = Vector3.Distance(this.transform.localPosition, obstacle.transform.localPosition);
-        // target bereikt    
-        if (distanceToTarget < 3f)
-        {
-            
+    { 
 
-        }
-        else if (this.transform.localPosition.z <= -7.12f)
+       if(actionBuffers.DiscreteActions[0] == 1)
         {
-
+            Thrust();
         }
     }
 
@@ -47,7 +37,6 @@ public class JumpCubeAgent : Agent
         // Agent positie   
         sensor.AddObservation(this.transform.localPosition);
         sensor.AddObservation(this.obstacle.transform.localPosition);
-
     }
 
     public override void OnEpisodeBegin()
@@ -58,43 +47,37 @@ public class JumpCubeAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
+        var discreteActionsOut = actionsOut.DiscreteActions;
+        discreteActionsOut[0] = 0;
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            Thrust();
-
+            discreteActionsOut[0] = 1;
         }
+      
     }
 
     private void Thrust()
     {
-        Debug.Log("Thrusting!");
-        rb.AddForce(Vector3.up * Force, ForceMode.Acceleration);
+        if(transform.position.y <= 0.5f)
+        {
+            rb.AddForce(Vector3.up * Force, ForceMode.Acceleration);
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("obstacle"))
         {
-            Destroy(collision.gameObject);
-            
-            AddReward(-1f);
+            collision.gameObject.transform.position = new Vector3(11, 0.3603692f, 0.002144069f);
+            AddReward(-0.5f);
             EndEpisode();
-        }else if (collision.gameObject.CompareTag("Zone"))
-        {
-            Debug.Log("floor");
-            isJumping = false;
-        }
-        else
-        {
-            Debug.Log("air");
-            AddReward(0.1f);
-            isJumping = true;
         }
     }
 
     private void ResetPlayer()
     {
-        this.transform.position = originalPosition;
+        //this.transform.position = originalPosition;
     }
 
 

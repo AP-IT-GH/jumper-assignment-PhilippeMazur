@@ -24,7 +24,8 @@ public class Obstacle : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("wall"))
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            this.gameObject.transform.position = new Vector3(11, 0.3603692f, 0.002144069f);
             player.GetComponent<Agent>().AddReward(1.0f);
             player.GetComponent<Agent>().EndEpisode();
 
