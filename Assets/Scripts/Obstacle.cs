@@ -8,16 +8,22 @@ public class Obstacle : MonoBehaviour
 
     public float moveSpeed = 10f;
     public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool flip = false;
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(this.transform.position.z);
         this.transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        
+        if (this.transform.position.z >= -0.9 && flip == false)
+        {
+            this.transform.position += new Vector3(0, 0, -0.1f);
+            if (this.transform.position.z == -0.9)
+                flip = true;
+        }
+        if (flip == true && this.transform.position.z >= 0.9)
+            this.transform.position += new Vector3(0, 0, 0.1f);
     }
 
     private void OnCollisionEnter(Collision collision)
