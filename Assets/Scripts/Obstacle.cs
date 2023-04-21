@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.MLAgents;
 using UnityEngine;
+using Unity.MLAgents;
 
 public class Obstacle : MonoBehaviour
 {
@@ -29,7 +27,6 @@ public class Obstacle : MonoBehaviour
             this.gameObject.transform.position = new Vector3(11, 0.3603692f, 0.002144069f);
             player.GetComponent<Agent>().AddReward(0.9f);
             player.GetComponent<Agent>().EndEpisode();
-
         }
 
         if (collision.gameObject.CompareTag("flip"))
