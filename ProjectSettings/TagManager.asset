@@ -8,6 +8,8 @@ TagManager:
   - wall
   - player
   - obstacle
+  - flip
+  - flip2
   layers:
   - Default
   - TransparentFX

@@ -8,22 +8,18 @@ public class Obstacle : MonoBehaviour
 
     public float moveSpeed = 10f;
     public GameObject player;
-    private bool flip = false;
+    private bool flip;
 
     // Update is called once per frame
     void Update()
     {
         Debug.Log(this.transform.position.z);
         this.transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-        
-        if (this.transform.position.z >= -0.9 && flip == false)
-        {
-            this.transform.position += new Vector3(0, 0, -0.1f);
-            if (this.transform.position.z == -0.9)
-                flip = true;
-        }
-        if (flip == true && this.transform.position.z >= 0.9)
-            this.transform.position += new Vector3(0, 0, 0.1f);
+
+        if (flip == false)
+            this.transform.Translate(-Vector3.forward * (moveSpeed + 5) * Time.deltaTime);
+        else
+            this.transform.Translate(Vector3.forward * (moveSpeed + 5) * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,5 +31,10 @@ public class Obstacle : MonoBehaviour
             player.GetComponent<Agent>().EndEpisode();
 
         }
+
+        if (collision.gameObject.CompareTag("flip"))
+            flip = true;
+        if (collision.gameObject.CompareTag("flip2"))
+            flip = false;
     }
 }
