@@ -1,4 +1,5 @@
 #  Jumper tutorial
+Philippe Mazur & Alae Chatar
 
 ## Maak een omgeving waarmee de agent kan interageren:
           1. Start van een lege scene 
